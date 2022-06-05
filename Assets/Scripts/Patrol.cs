@@ -6,6 +6,16 @@ public class Patrol : MonoBehaviour
 {   
     [SerializeField] private float _speed;
     
+    private void Update()
+    {
+        transform.Translate(_speed * Time.deltaTime, 0, 0);        
+    }
+
+    private void TurnAround(float rotation)
+    {        
+        transform.rotation = Quaternion.Euler(0, rotation, 0);        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         float rotationLeft = 180;
@@ -20,15 +30,5 @@ public class Patrol : MonoBehaviour
         {
             TurnAround(rotationLeft);
         }
-    }
-
-    private void Update()
-    {
-        transform.Translate(_speed * Time.deltaTime, 0, 0);        
-    }
-
-    private void TurnAround(float rotation)
-    {        
-        transform.rotation = Quaternion.Euler(0, rotation, 0);        
     }
 }

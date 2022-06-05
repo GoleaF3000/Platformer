@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _forceJump;
@@ -13,6 +13,8 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
+        float invert = -1;
+
         if (Input.GetKey(KeyCode.A) && _spriteRenderer.flipX == false)
         {
             _spriteRenderer.flipX = true;            
@@ -24,7 +26,7 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {           
-            transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
+            transform.Translate(_speed * Time.deltaTime * invert, 0, 0);
         }
         else if (Input.GetKey(KeyCode.D))
         {            

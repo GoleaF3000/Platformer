@@ -16,23 +16,29 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
+        float move = 1;
+        float stop = 0;
+
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
-            _speed = 1;            
+            _speed = move;            
         }
         else
         {
-            _speed = 0;            
+            _speed = stop;            
         }
 
-        _animation.SetFloat(PlayerAnimatorController.Parameters.Speed, _speed);;
+        _animation.SetFloat(Keys.PlayerAnimatorController.Parameters.Speed, _speed);;
     }
 }
 
-public static class PlayerAnimatorController
+public static class Keys
 {
-    public static class Parameters
+    public static class PlayerAnimatorController
     {
-        public const string Speed = "Speed";
+        public static class Parameters
+        {
+            public const string Speed = "Speed";
+        }
     }
 }
