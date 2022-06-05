@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animation))]
+
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator _animation;
@@ -12,7 +14,7 @@ public class PlayerAnimation : MonoBehaviour
         _animation = GetComponent<Animator>();        
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
@@ -23,6 +25,14 @@ public class PlayerAnimation : MonoBehaviour
             _speed = 0;            
         }
 
-        _animation.SetFloat("Speed", _speed);
+        _animation.SetFloat(PlayerAnimatorController.Parameters.Speed, _speed);;
+    }
+}
+
+public static class PlayerAnimatorController
+{
+    public static class Parameters
+    {
+        public const string Speed = "Speed";
     }
 }

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-    [SerializeField] private Transform _player;    
-
-    private float _positionY = 0;
-    private float _positionZ = -10;
+    [SerializeField] private Transform _player;   
+    [SerializeField] private float _positionY;
+    [SerializeField] private float _positionZ;
 
     private void Start()
     {
